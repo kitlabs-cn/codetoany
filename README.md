@@ -29,7 +29,12 @@
 2. 网页授权接口中的get参数`scope`和`state`可以以get参数的形式传递给`codetoany/getcode.php`，程序会把它们再传递给接口；
 3. 除了get参数`auk`外，传递给`codetoany/getcode.php`的任何get参数都会以get参数的形式再传递给`授权url`；
 4. 如果网页授权回调域名使用`https`协议访问，那么程序需要略微调整才可以正常使用；
+## PS:改进，已有程序可能参数不确定或是动态的，故需要处理$_GET参数，修改如下
 
+		$redirectUrlConfig = [
+		    'bbs_cn' => 'http://bbs.a.cn/plugin.php?' . http_build_query($_GET),
+		    'bbs_net' => 'http://bbs.a.net/plugin.php?' . http_build_query($_GET),
+		];
 ## 郑重声明
 * 本程序仅供学习研究使用，不得用于非法用途，否则后果自负；
 * 对于由本程序导致的一切法律和安全问题，作者不承担任何责任；
